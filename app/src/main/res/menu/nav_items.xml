@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/nav_login"
+        android:icon="@drawable/checkbox"
+        android:title="我的收藏" />
+    <item
+        android:id="@+id/nav_myprofile"
+        android:icon="@drawable/ic_myprofile"
+        android:title="購物車" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/settings"
+        android:title="會員專區" />
+</menu>

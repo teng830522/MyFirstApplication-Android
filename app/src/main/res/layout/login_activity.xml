@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="帳號"
+        android:textColor="@color/Black"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/etLogin_UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/Black" />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="密碼"
+        android:textColor="@color/Black"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/etLogin_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="@color/Black" />
+
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="記住帳號" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保持登入" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btLogin_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#FFAA33"
+            android:onClick="login"
+            android:text="登入"
+            android:textColor="@color/Black"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btLogin_Registergis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#FF69B4"
+            android:onClick="forget"
+            android:text="註冊"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRemind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F00"
+        android:textSize="15dp" />
+
+</LinearLayout>

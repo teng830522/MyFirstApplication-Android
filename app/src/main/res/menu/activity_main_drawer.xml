@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_checkbox"
+            android:icon="@drawable/checkbox"
+            android:title="限時折扣活動" />
+        <item
+            android:id="@+id/nav_document"
+            android:icon="@drawable/document"
+            android:title="訊息通知與公告" />
+        <item
+            android:id="@+id/nav_gift"
+            android:icon="@drawable/gift"
+            android:title="瀏覽紀錄" />
+
+
+        <item android:title="商品分類">
+            <menu>
+                <item
+                    android:id="@+id/menu_item4"
+                    android:icon="@drawable/share"
+                    android:title="全站商品" />
+                <item
+                    android:id="@+id/menu_item5"
+                    android:icon="@drawable/settings"
+                    android:title="人氣商品推薦" />
+                <item
+                    android:id="@+id/menu_item6"
+                    android:icon="@drawable/settings"
+                    android:title="熱銷商品補貨" />
+                <item
+                    android:id="@+id/menu_item7"
+                    android:icon="@drawable/settings"
+                    android:title="新品上市" />
+                <item
+                    android:id="@+id/menu_item8"
+                    android:icon="@drawable/settings"
+                    android:title="主題商品" />
+            </menu>
+        </item>
+        <item android:title="關於">
+            <menu>
+                <item
+                    android:id="@+id/menu_item9"
+                    android:icon="@drawable/share"
+                    android:title="客服" />
+                <item
+                    android:id="@+id/menu_item10"
+                    android:icon="@drawable/settings"
+                    android:title="設定" />
+            </menu>
+        </item>
+    </group>
+</menu>
