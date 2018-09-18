@@ -55,7 +55,7 @@
                     android:id="@+id/menu_item10"
                     android:icon="@drawable/share"
                     android:title="登出"
-                    android:visible="false"/>
+                    android:visible="true"/>
                 <item
                     android:id="@+id/menu_item11"
                     android:icon="@drawable/settings"

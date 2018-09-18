@@ -23,8 +23,12 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.lang.reflect.Field;
+
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity
         //FackBook 記錄應用程式的啟動作業
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+        CheckSignIn();
     }
 
     private void FindView() {
@@ -117,7 +122,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        Menu menu = navigationView.getMenu();
         int id = item.getItemId();
 
         if (id == R.id.nav_checkbox) {
@@ -132,12 +136,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_item5) {
             Toast.makeText(this, "人氣商品推薦", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.menu_item9) {
-//            Intent login = new Intent(MainActivity.this,Login.class);
-////            startActivity(login);
-
-        }else if (id == R.id.menu_item10) {
-//            menu.findItem(R.id.menu_item10).setVisible(false) ;
-//            menu.findItem(R.id.menu_item9).setVisible(true) ;
+            Intent login = new Intent(MainActivity.this, Login.class);
+            startActivity(login);
+        } else if (id == R.id.menu_item10) {
+            FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
+            CheckSignIn();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -191,6 +195,18 @@ public class MainActivity extends AppCompatActivity
             Log.e("ERROR NO SUCH FIELD", "Unable to get shift mode field");
         } catch (IllegalAccessException e) {
             Log.e("ERROR ILLEGAL ALG", "Unable to change value of shift mode");
+        }
+    }
+
+    private void CheckSignIn() {
+        Menu menu = navigationView.getMenu();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            menu.findItem(R.id.menu_item9).setVisible(false);
+            menu.findItem(R.id.menu_item10).setVisible(true);
+        } else {
+            menu.findItem(R.id.menu_item9).setVisible(true);
+            menu.findItem(R.id.menu_item10).setVisible(false);
         }
     }
 }

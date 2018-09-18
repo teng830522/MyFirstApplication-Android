@@ -2,11 +2,14 @@ package com.example.teng.myapplication;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -61,10 +64,7 @@ public class Login extends AppCompatActivity {
         googleLogin();
         faceBokLogin();
         //測試
-
-        FirebaseAuth.getInstance().signOut() ;
         tvRemind.setText("");
-
     }
 
     @Override
@@ -264,13 +264,19 @@ public class Login extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         //調用FireBase使用者資料
         if (user != null) {
-            tvRemind.setText("登入成功\n" + user.getDisplayName() + "\n" + user.getEmail());
+//            tvRemind.setText(user.getUid() + "\n" +user.getProviderId()+ "\n"+user.getDisplayName()+ "\n"+ user.getPhoneNumber());
+            Intent loginResult = new Intent (this ,MainActivity.class);
+            loginResult.putExtra("userID",user.getUid());
+            loginResult.putExtra("userName",user.getDisplayName());
+            loginResult.putExtra("userMail",user.getEmail());
+            startActivity(loginResult);
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         if (requestCode != RESULT_CANCELED) {
             // Pass the activity result back to the Google
             if (requestCode == RC_SIGN_IN && data != null) {
@@ -280,7 +286,7 @@ public class Login extends AppCompatActivity {
                 handleSignInResult(result);
             } else {
                 // 將訊息結果傳遞回Facebook SDK
-                callbackManager.onActivityResult(requestCode, resultCode, data);
+
             }
         }
 
