@@ -77,7 +77,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="#FF69B4"
-            android:onClick="forget"
+            android:onClick="register"
             android:text="註冊"
             android:textColor="@color/Black"
             android:textSize="20dp"/>
@@ -90,12 +90,40 @@
         android:textColor="#F00"
         android:textSize="15dp" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        >
+
+    </com.google.android.gms.common.SignInButton>
+
     <com.facebook.login.widget.LoginButton
+        xmlns:facebook="http://schemas.android.com/apk/res-auto"
         android:id="@+id/fb_login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
+        android:textSize="13.5dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingLeft="13dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp"
+        facebook:com_facebook_login_text="            使用 Facebook 帳號登入"
+        facebook:com_facebook_logout_text="            將 Facebook 帳號登出"
+        />
 
 </LinearLayout>

@@ -2,8 +2,7 @@ package com.example.teng.myapplication;
 
 
 import android.annotation.SuppressLint;
-import android.icu.math.BigDecimal;
-import android.icu.util.Currency;
+import android.content.ClipData;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.v4.app.Fragment;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     private HomeFragment homeFragment;
     private LoginFragment loginFragment;
     private MyProfileFragment myProfileFragment;
-    private SettingFragment settingFragment;
+    private ShoppingCarFragment shoppingCarFragment;
     private NavigationView navigationView;
 
     @Override
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity
         homeFragment = new HomeFragment();
         loginFragment = new LoginFragment();
         myProfileFragment = new MyProfileFragment();
-        settingFragment = new SettingFragment();
+        shoppingCarFragment = new ShoppingCarFragment();
         //Fragment 預設 HomeFragment
         setFragment(homeFragment);
         //標題選單樣式預設toolbar
@@ -118,6 +117,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Menu menu = navigationView.getMenu();
         int id = item.getItemId();
 
         if (id == R.id.nav_checkbox) {
@@ -130,15 +130,14 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_item4) {
             Toast.makeText(this, "全站商品", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.menu_item5) {
-            Intent intent = new Intent(MainActivity.this, Register.class);
-            //取消動畫
-            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
-        } else if (id == R.id.menu_item6) {
-            Intent intent = new Intent(MainActivity.this, Login.class);
-            //取消動畫
-            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
+            Toast.makeText(this, "人氣商品推薦", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.menu_item9) {
+//            Intent login = new Intent(MainActivity.this,Login.class);
+////            startActivity(login);
+
+        }else if (id == R.id.menu_item10) {
+//            menu.findItem(R.id.menu_item10).setVisible(false) ;
+//            menu.findItem(R.id.menu_item9).setVisible(true) ;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -157,11 +156,11 @@ public class MainActivity extends AppCompatActivity
                     case R.id.nav_login:
                         setFragment(loginFragment);
                         return true;
+                    case R.id.nav_shopping_car:
+                        setFragment(shoppingCarFragment);
+                        return true;
                     case R.id.nav_myprofile:
                         setFragment(myProfileFragment);
-                        return true;
-                    case R.id.nav_setting:
-                        setFragment(settingFragment);
                         return true;
                     default:
                         return false;

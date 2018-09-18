@@ -8,14 +8,14 @@
         android:title="@string/nav_home" />
     <item
         android:id="@+id/nav_login"
-        android:icon="@drawable/checkbox"
+        android:icon="@drawable/my_favourite"
         android:title="我的收藏" />
+    <item
+        android:id="@+id/nav_shopping_car"
+        android:icon="@drawable/shopping_cart"
+        android:title="購物車" />
     <item
         android:id="@+id/nav_myprofile"
         android:icon="@drawable/ic_myprofile"
-        android:title="購物車" />
-    <item
-        android:id="@+id/nav_setting"
-        android:icon="@drawable/settings"
         android:title="會員專區" />
 </menu>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
 
@@ -49,9 +50,14 @@
                 <item
                     android:id="@+id/menu_item9"
                     android:icon="@drawable/share"
-                    android:title="客服" />
+                    android:title="登入" />
                 <item
                     android:id="@+id/menu_item10"
+                    android:icon="@drawable/share"
+                    android:title="登出"
+                    android:visible="false"/>
+                <item
+                    android:id="@+id/menu_item11"
                     android:icon="@drawable/settings"
                     android:title="設定" />
             </menu>
