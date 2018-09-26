@@ -23,8 +23,6 @@
         <activity
             android:name="com.facebook.FacebookActivity"/>
 
-
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

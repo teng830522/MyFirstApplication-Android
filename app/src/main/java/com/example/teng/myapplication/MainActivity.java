@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity
     private MyProfileFragment myProfileFragment;
     private ShoppingCarFragment shoppingCarFragment;
     private NavigationView navigationView;
+    private SQLiteHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity
         //FackBook 記錄應用程式的啟動作業
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+        //呼叫SQLiteHelper 建立物件
+        helper = new SQLiteHelper(this, "expense.db", null, 1);
         CheckSignIn();
     }
 
